@@ -20,7 +20,7 @@
       <li>Loading Tapas...</li>
     </ul>
     <form class="add-items">
-      <input type="text" name="item" placeholder="Item Name" required>
+      <input type="text" name="item" placeholder="Item Name"  required>
       <input type="submit" value="+ Add Item" id="add-button">
     </form>
   </div>
@@ -30,10 +30,24 @@
   const itemsList = document.querySelector('.plates');
   const items = [];
 
-  function addNewItem() => {
-    preventDefault();
 
+
+
+
+
+  function addNewItem(e) {
+  e.preventDefault();
+
+  const text = this.querySelector('[name="item"]').value
+  const item = {
+    text,
+    done: false,
   }
+  console.log(item)
+  }
+
+ addItems.addEventListener('submit', addNewItem)
+
 
 </script>
 
