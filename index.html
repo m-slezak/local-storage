@@ -32,9 +32,6 @@
 
 
 
-
-
-
   function addNewItem(e) {
     e.preventDefault();
     const text = this.querySelector('[name="item"]').value
@@ -44,7 +41,18 @@
     }
     this.reset()
     items.push(item)
+    populeteItems (items, itemsList)
     console.log(items)
+    }
+
+    function populeteItems (plates = [], plateList) {
+      plateList.innerHTML = plates.map((plate, i) => {
+        return (
+        `<li>
+              ${plate.text}
+          </li>
+        `
+     ) }).join('')
     }
 
  addItems.addEventListener('submit', addNewItem)
