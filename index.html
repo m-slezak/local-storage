@@ -23,12 +23,18 @@
       <input type="text" name="item" placeholder="Item Name"  required>
       <input type="submit" value="+ Add Item" id="add-button">
     </form>
+    <div class="button-container">
+    <button id="clearAll">clear all</button>
+    <button id="checkAll">check all</button>
+    <button id="uncheckAll">uncheck all</button>
+    </div>
   </div>
 
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
   const items = JSON.parse(localStorage.getItem('item')) || [];
+  const clearAll = document.querySelector('#clearAll')
 
 
 
@@ -59,7 +65,7 @@
 
 
 
-    function sayHi(e) {
+    function toggleCheck(e) {
       if(!e.target.matches('input')) return;
       const index = e.target.dataset.index
       items[index].done = !items[index].done
@@ -68,9 +74,17 @@
 
     }
 
+    function toggleClearAll() {
+      itemsList.length = 0;
+      itemsList.innerHTML = ""
+      localStorage.clear();
 
-  itemsList.addEventListener('click', sayHi)
+    }
+
+
+  itemsList.addEventListener('click', toggleCheck)
   addItems.addEventListener('submit', addNewItem)
+  clearAll.addEventListener('click', toggleClearAll)
 
   populeteItems(items, itemsList)
 
