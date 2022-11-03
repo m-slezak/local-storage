@@ -28,7 +28,7 @@
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
-  const items = [];
+  const items = JSON.parse(localStorage.getItem('item')) || [];
 
 
 
@@ -41,7 +41,7 @@
     }
     this.reset()
     items.push(item)
-    localStorage.setItem("item", items)
+    localStorage.setItem('item', JSON.stringify(items))
     populeteItems (items, itemsList)
 
     }
@@ -56,12 +56,23 @@
         `
      ) }).join('')
     }
-    populateItems();
 
 
 
- addItems.addEventListener('submit', addNewItem)
+    function sayHi(e) {
+      if(!e.target.matches('input')) return;
+      const index = e.target.dataset.index
+      items[index].done = !items[index].done
+      localStorage.setItem('item', JSON.stringify(items))
+      populeteItems(items, itemsList)
 
+    }
+
+
+  itemsList.addEventListener('click', sayHi)
+  addItems.addEventListener('submit', addNewItem)
+
+  populeteItems(items, itemsList)
 
 </script>
 
