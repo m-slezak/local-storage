@@ -21,7 +21,7 @@
       <input type="submit" value="+ Add Item" id="add-button">
     </form>
     <div class="button-container">
-    <button id="clearAll">clear all</button>
+    <button id="clearAll">delete all</button>
     <button id="checkAll">check all</button>
     <button id="uncheckAll">uncheck all</button>
     </div>
@@ -93,7 +93,7 @@
 
     function toggleClearAll() {
 
-      if (confirm('Are you sure you want to delete all tacos?')) {
+      if (confirm('Are you sure you want to delete all items?')) {
       itemsList.length = 0;
       itemsList.innerHTML = ""
       localStorage.clear();

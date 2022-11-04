@@ -20,10 +20,17 @@ html {
 
 .wrapper {
   padding: 20px;
-  max-width: 350px;
-  background: rgba(255, 255, 255, 0.20);
+  min-width: 500px;
+  background: rgba(255, 255, 255, 0.40);
   box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
 }
+@media screen and(max-width: 900px){
+  .wrapper{
+    width:500px;
+  }
+}
+
+
 
 h2 {
   text-align: center;
@@ -60,7 +67,7 @@ h2 {
 }
 
 .plates input:checked + label:before {
-  content: "✅";
+  content: "🦖";
 }
 
 .add-items {
@@ -81,15 +88,18 @@ h2 {
 .button-container{
   display: flex;
   margin-top: 1rem;
+  justify-content: center;
 }
 
 .button-container button{
-  width: 60px;
+  width: 80px;
+  height: 40px;
   padding: 4px 8px;
   font-size: 12px;
-  background: orange;
-  color: white;
+  background: rgba(350, 400, 6, 0.746);
+  color: black;
   margin-right: 10px;
+  border: none;
 }
 
 .button-container button:hover{
