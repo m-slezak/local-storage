@@ -19,6 +19,7 @@
     <form class="add-items">
       <input type="text" name="item" placeholder="Item Name"  required>
       <input type="submit" value="+ Add Item" id="add-button">
+      <button class="delete-button">❌</button>
     </form>
     <div class="button-container">
     <button id="clearAll">delete all</button>
@@ -34,6 +35,7 @@
   const clearAll = document.querySelector('#clearAll')
   const uncheckAll = document.querySelector("#uncheckAll")
   const checkAll = document.querySelector('#checkAll')
+  const deleteButton = document.querySelector('.delete-button')
 
 
 
@@ -68,6 +70,7 @@
       if(!e.target.matches('input')) return;
       const index = e.target.dataset.index
       items[index].done = !items[index].done
+      items.done ? deleteButton.className.add('visible') ? deleteButton.className.add('none')
       localStorage.setItem('item', JSON.stringify(items))
       populeteItems(items, itemsList)
     }
