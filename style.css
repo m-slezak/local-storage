@@ -111,7 +111,7 @@ h2 {
 .delete-button {
   background: none;
   border: none;
-  display: none;
+  visibility: hidden;
 }
 
 .delete-button:hover{

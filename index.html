@@ -74,7 +74,7 @@
       if(!e.target.matches('input')) return;
       const index = e.target.dataset.index
       items[index].done = !items[index].done
-
+      // deleteButton.style.visibility = "visible";
       localStorage.setItem('item', JSON.stringify(items))
       populeteItems(items, itemsList)
     }
@@ -102,8 +102,10 @@
 
       if (confirm('Are you sure you want to delete all items?')) {
       itemsList.length = 0;
-      itemsList.innerHTML = ""
-      localStorage.clear();
+      itemsList.innerHTML = "";
+      window.localStorage.clear();
+      items = [];
+      localStorage.setItem('item',items)
       } else {
       return
       }
