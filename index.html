@@ -95,17 +95,13 @@
       }
     }
 
-
-
-
     function toggleClearAll() {
-
       if (confirm('Are you sure you want to delete all items?')) {
       itemsList.length = 0;
       itemsList.innerHTML = "";
-      window.localStorage.clear();
-      items = [];
-      localStorage.setItem('item',items)
+      localStorage.clear();
+     location.reload()
+
       } else {
       return
       }
